@@ -26,6 +26,11 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use('mfussenegger/nvim-dap')
+  use {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+  }
   use('mxsdev/nvim-dap-vscode-js')
   use('lewis6991/gitsigns.nvim')
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
