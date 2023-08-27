@@ -12,12 +12,10 @@ return require('packer').startup(function(use)
 
   }
   use 'feline-nvim/feline.nvim'
+  use 'ishan9299/nvim-solarized-lua'
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use 'neanias/everforest-nvim'
   use 'nvim-tree/nvim-web-devicons'
-  use({ 'catppuccin/nvim', as = 'catppuccin',
-    config = function()
-      vim.cmd('colorscheme catppuccin')
-    end
-  })
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,

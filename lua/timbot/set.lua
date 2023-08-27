@@ -33,3 +33,4 @@ vim.wo.signcolumn = 'yes'
 vim.o.completeopt = 'menuone,noselect'
 
 vim.g.mapleader = " "
+vim.cmd('colorscheme everforest')
