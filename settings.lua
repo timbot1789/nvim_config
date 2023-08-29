@@ -34,3 +34,27 @@ vim.o.completeopt = 'menuone,noselect'
 
 vim.g.mapleader = " "
 vim.cmd('colorscheme everforest')
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
+-- Key Remaps --
+
+vim.g.mapleader = " "
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>t", vim.cmd.term)
+vim.keymap.set("n", "<leader>wh", vim.cmd.sp)
+vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
+vim.keymap.set("n", "s", vim.cmd.w)
+vim.keymap.set("n", "<leader>w", "<C-w>")
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
