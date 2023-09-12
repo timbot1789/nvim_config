@@ -1,3 +1,5 @@
+require("core.plugins")
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -7,7 +9,8 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-vim.opt.wrap = false
+vim.opt.wrap = true 
+vim.opt.linebreak = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -33,6 +36,8 @@ vim.wo.signcolumn = 'yes'
 vim.o.completeopt = 'menuone,noselect'
 
 vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.cmd('colorscheme everforest')
 
 -- [[ Highlight on yank ]]
@@ -49,9 +54,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Key Remaps --
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>t", vim.cmd.term)
-vim.keymap.set("n", "<leader>wh", vim.cmd.sp)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Neotree )
+vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
+vim.keymap.set("n", "<leader>ws", vim.cmd.sp)
 vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
 vim.keymap.set("n", "s", vim.cmd.w)
 vim.keymap.set("n", "<leader>w", "<C-w>")
@@ -61,55 +66,4 @@ vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { d
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use('wbthomason/packer.nvim')
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-
-  }
-  use 'feline-nvim/feline.nvim'
-  use 'ishan9299/nvim-solarized-lua'
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use 'neanias/everforest-nvim'
-  use 'nvim-tree/nvim-web-devicons'
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('mbbill/undotree')
-  use('tpope/vim-fugitive')
-  use('mfussenegger/nvim-dap')
-  use {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
-  }
-  use('mxsdev/nvim-dap-vscode-js')
-  use('lewis6991/gitsigns.nvim')
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
-  use({
-  'VonHeikemen/lsp-zero.nvim',
-  requires = {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},             -- Required
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Requiredd
-    {'hrsh7th/cmp-buffer'},     -- Required
-    {'hrsh7th/cmp-path'},     -- Required
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'hrsh7th/cmp-nvim-lua'}, -- Required
-    {'L3MON4D3/LuaSnip'},     -- Required
-    {'rafamadriz/friendly-snippets'},     -- Required
-  },
-  })
-end)
-
 
