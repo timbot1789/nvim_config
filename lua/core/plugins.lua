@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
   }
   use('mxsdev/nvim-dap-vscode-js')
+  use('rhysd/reply.vim')
   use('lewis6991/gitsigns.nvim')
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
   use({

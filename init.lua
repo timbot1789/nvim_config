@@ -63,6 +63,8 @@ vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>rr', vim.cmd.Repl)
+vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
