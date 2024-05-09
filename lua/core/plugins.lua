@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }
   use 'neanias/everforest-nvim'
   use 'nvim-tree/nvim-web-devicons'
+  use 'Olical/conjure'
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
@@ -38,7 +39,6 @@ return require('packer').startup(function(use)
     run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
   }
   use('mxsdev/nvim-dap-vscode-js')
-  use('rhysd/reply.vim')
   use('lewis6991/gitsigns.nvim')
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
   use({

@@ -36,6 +36,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.completeopt = 'menuone,noselect'
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.cmd('colorscheme everforest')
@@ -58,12 +59,14 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Neotree )
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
 vim.keymap.set("n", "<leader>ws", vim.cmd.sp)
 vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
+vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
+
+vim.keymap.set("n", "d", '"_d')
 vim.keymap.set("n", "s", vim.cmd.w)
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>rr', vim.cmd.Repl)
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 
 -- Only required if you have packer configured as `opt`
