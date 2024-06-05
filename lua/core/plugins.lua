@@ -1,49 +1,95 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
+vim.opt.termguicolors = true
 
-local packer_bootstrap = ensure_packer()
-
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use('wbthomason/packer.nvim')
-  use { "nvim-neotest/nvim-nio" }
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.3',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-
-  }
-  use 'feline-nvim/feline.nvim'
-  use 'ishan9299/nvim-solarized-lua'
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use 'neanias/everforest-nvim'
-  use 'nvim-tree/nvim-web-devicons'
-  use 'Olical/conjure'
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('tpope/vim-fugitive')
-  use('mfussenegger/nvim-dap')
-  use {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
-  }
-  use('mxsdev/nvim-dap-vscode-js')
-  use('lewis6991/gitsigns.nvim')
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
-  use({
+end
+vim.opt.rtp:prepend(lazypath)
+
+return require('lazy').setup({
+  "nvim-neotest/nvim-nio",
+  {
+    'tpope/vim-fugitive',
+    config = function ()
+    end
+  },
+  {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.3',
+	  dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  {
+    'freddiehaddad/feline.nvim',
+    opts = {},
+    config = function(_, opts)
+        require('feline').setup()
+        require('feline').winbar.setup()       -- to use winbar
+    end
+  },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+        rocks = { "magick" },
+    },
+  },
+  {
+    '3rd/image.nvim',
+    config = function()
+      require("image").setup({
+        backend = "kitty",
+        integrations = {
+          markdown = {
+            enabled = true,
+            clear_in_insert_mode = false,
+            download_remote_images = true,
+            only_render_image_at_cursor = false,
+            filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+          },
+          neorg = {
+            enabled = true,
+            clear_in_insert_mode = false,
+            download_remote_images = true,
+            only_render_image_at_cursor = false,
+            filetypes = { "norg" },
+          },
+          html = {
+            enabled = false,
+          },
+          css = {
+            enabled = false,
+          },
+        },
+        max_width = nil,
+        max_height = nil,
+        max_width_window_percentage = nil,
+        max_height_window_percentage = 50,
+        window_overlap_clear_enabled = false, -- toggles images when windows are overlapped
+        window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
+        editor_only_render_when_focused = false, -- auto show/hide images when the editor gains/looses focus
+        tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
+        hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
+      })
+    end
+  },
+  'ishan9299/nvim-solarized-lua',
+  { "catppuccin/nvim", name = "catppuccin" },
+  'neanias/everforest-nvim',
+  'nvim-tree/nvim-web-devicons',
+  'lewis6991/gitsigns.nvim',
+  'Olical/conjure',
+  { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"},
+  {
   'VonHeikemen/lsp-zero.nvim',
-  requires = {
+  dependencies= {
     -- LSP Support
     {'neovim/nvim-lspconfig'},             -- Required
     {'williamboman/mason.nvim'},
@@ -58,18 +104,17 @@ return require('packer').startup(function(use)
     {'hrsh7th/cmp-nvim-lua'}, -- Required
     {'L3MON4D3/LuaSnip'},     -- Required
     {'rafamadriz/friendly-snippets'},     -- Required
+    }
   },
-  use 'github/copilot.vim',
-  use {
+  {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
-    requires = {
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
   }
-  })
-end)
+})
 
 

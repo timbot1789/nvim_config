@@ -1,5 +1,4 @@
 require("core.plugins")
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -61,14 +60,16 @@ vim.keymap.set("n", "<leader>ws", vim.cmd.sp)
 vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
 vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
 
-vim.keymap.set("n", "d", '"_d')
 vim.keymap.set("n", "s", vim.cmd.w)
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
-
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git);
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, {})
+vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, {})
+vim.keymap.set('n', '<leader>ps', function()
+  require('telescope.builtin').grep_string({search = vim.fn.input('Grep > ')});
+end)
 
