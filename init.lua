@@ -1,3 +1,4 @@
+vim.opt.termguicolors = true
 require("core.plugins")
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -54,6 +55,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Key Remaps --
 
 vim.g.mapleader = " "
+vim.g.terminal_emulator='kitty'
 vim.keymap.set("n", "<leader>pv", vim.cmd.Neotree )
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
 vim.keymap.set("n", "<leader>ws", vim.cmd.sp)

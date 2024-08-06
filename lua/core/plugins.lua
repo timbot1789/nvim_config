@@ -1,7 +1,3 @@
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
-vim.opt.termguicolors = true
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -16,12 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
-  "nvim-neotest/nvim-nio",
-  {
-    'tpope/vim-fugitive',
-    config = function ()
-    end
-  },
+  'nvim-neotest/nvim-nio',
+  'tpope/vim-fugitive',
+  'tpope/vim-surround',
+  'tpope/vim-rails',
   {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.3',
 	  dependencies = { 'nvim-lua/plenary.nvim' },
@@ -35,7 +29,7 @@ return require('lazy').setup({
     end
   },
   {
-    "vhyrro/luarocks.nvim",
+    'vhyrro/luarocks.nvim',
     priority = 1001, -- this plugin needs to run before anything else
     opts = {
         rocks = { "magick" },
@@ -51,7 +45,7 @@ return require('lazy').setup({
             enabled = true,
             clear_in_insert_mode = false,
             download_remote_images = true,
-            only_render_image_at_cursor = false,
+            only_render_image_at_cursor = true,
             filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
           },
           neorg = {
@@ -81,12 +75,12 @@ return require('lazy').setup({
     end
   },
   'ishan9299/nvim-solarized-lua',
-  { "catppuccin/nvim", name = "catppuccin" },
+  { 'catppuccin/nvim', name = 'catppuccin' },
   'neanias/everforest-nvim',
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
   'Olical/conjure',
-  { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"},
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
   {
   'VonHeikemen/lsp-zero.nvim',
   dependencies= {
@@ -107,12 +101,12 @@ return require('lazy').setup({
     }
   },
   {
-  "nvim-neo-tree/neo-tree.nvim",
+  'nvim-neo-tree/neo-tree.nvim',
     branch = "v3.x",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
     }
   }
 })
