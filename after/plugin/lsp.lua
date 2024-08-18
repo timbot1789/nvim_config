@@ -17,11 +17,8 @@ require('mason-lspconfig').setup({
 local cmp = require('cmp')
 
 cmp.setup({
-  mapping = {
-    ['<CR>'] = cmp.mapping.confirm({select = false})
-  },
   sources = {
-    { name = "copilot" },
+    { name = 'path'},
     { name = "nvim_lsp" },
     { name = "luasnip" },
   },
