@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
-  'nvim-neotest/nvim-nio',
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-rails',
@@ -92,12 +91,9 @@ return require('lazy').setup({
       })
     end
   },
-  'ishan9299/nvim-solarized-lua',
-  { 'catppuccin/nvim', name = 'catppuccin' },
   'neanias/everforest-nvim',
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
-  'Olical/conjure',
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
   {
   'VonHeikemen/lsp-zero.nvim',
