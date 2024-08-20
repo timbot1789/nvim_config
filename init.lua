@@ -40,6 +40,7 @@ vim.g.maplocalleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.cmd('colorscheme everforest')
+vim.cmd('set iskeyword-=_')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

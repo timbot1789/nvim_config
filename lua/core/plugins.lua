@@ -15,6 +15,8 @@ return require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-rails',
+  'tpope/vim-commentary',
+  'tpope/vim-dadbod',
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
