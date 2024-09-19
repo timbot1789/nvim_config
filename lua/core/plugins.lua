@@ -16,6 +16,7 @@ return require('lazy').setup({
   'tpope/vim-surround',
   'tpope/vim-rails',
   'tpope/vim-commentary',
+  'tpope/vim-dispatch',
   'tpope/vim-dadbod',
   {
     "folke/which-key.nvim",
