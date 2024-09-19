@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.g.mapleader = " "
 vim.g.terminal_emulator='kitty'
-vim.keymap.set("n", "<leader>pv", vim.cmd.Neotree )
+vim.keymap.set("n", "<leader>pv", '<cmd>Neotree reveal<cr>')
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
 vim.keymap.set("n", "<leader>ws", vim.cmd.sp)
 vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
