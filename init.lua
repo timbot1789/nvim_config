@@ -69,8 +69,10 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git);
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, {})
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Open git status window'});
+vim.keymap.set('n', '<leader>ff', function() 
+  require('telescope.builtin').find_files({hidden = true});
+end, {desc = '[?] Search for files'})
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
   require('telescope.builtin').grep_string({search = vim.fn.input('Grep > ')});
