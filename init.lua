@@ -9,7 +9,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-vim.opt.wrap = true 
+vim.opt.wrap = true
 vim.opt.linebreak = true
 
 vim.opt.swapfile = false
@@ -17,7 +17,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false 
+vim.opt.hlsearch = false
 
 vim.opt.termguicolors = true
 
@@ -56,11 +56,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Key Remaps --
 
 vim.g.mapleader = " "
-vim.g.terminal_emulator='kitty'
+vim.g.terminal_emulator = 'kitty'
 vim.keymap.set("n", "<leader>pv", '<cmd>Neotree reveal<cr>')
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
 vim.keymap.set("n", "<leader>ws", vim.cmd.sp)
-vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
 vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
 
 vim.keymap.set("n", "s", vim.cmd.w)
@@ -69,12 +68,24 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Open git status window'});
-vim.keymap.set('n', '<leader>ff', function() 
-  require('telescope.builtin').find_files({hidden = true});
-end, {desc = '[?] Search for files'})
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Open git status window' });
+vim.keymap.set('n', '<leader>ff', function()
+  require('telescope.builtin').find_files({ hidden = true });
+end, { desc = '[?] Search for files' })
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
-  require('telescope.builtin').grep_string({search = vim.fn.input('Grep > ')});
+  require('telescope.builtin').grep_string({ search = vim.fn.input('Grep > ') });
 end)
 
+vim.api.nvim_create_user_command('RubyLspDebugStart',
+  function(opts)
+    vim.lsp.set_log_level 'debug'
+    require('vim.lsp.log').set_format_func(vim.inspect)
+    vim.lsp.stop_client(vim.lsp.get_clients())
+    vim.lsp.start({
+      name = 'ruby-lsp-debug',
+      cmd = { '/Users/tim/Documents/Code/ruby/ruby-lsp/exe/ruby-lsp', '--debug' },
+      on_init = function() vim.cmd 'vsplit term://rdbg -An' end
+    })
+  end,
+  {})

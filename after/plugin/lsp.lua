@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 require('mason').setup({})
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 local mason_lspconfig = require("mason-lspconfig")
 local servers = {
   ruby_lsp = {}
@@ -40,7 +40,6 @@ mason_lspconfig.setup_handlers {
   function(server_name)
     require("lspconfig")[server_name].setup {
       capabilities = capabilities,
-      on_attach = on_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }

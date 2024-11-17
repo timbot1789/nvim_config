@@ -97,7 +97,6 @@ return require('lazy').setup({
   'neanias/everforest-nvim',
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
   {
   'VonHeikemen/lsp-zero.nvim',
   dependencies= {
