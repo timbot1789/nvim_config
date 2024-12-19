@@ -74,6 +74,12 @@ vim.keymap.set('n', '<leader>ff', function()
   require('telescope.builtin').find_files({hidden = true});
 end, {desc = '[?] Search for files'})
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, {})
+vim.keymap.set('n', '<leader>qf', function()
+  vim.ui.input({prompt = 'Quickfix Command > '}, function(input)
+    vim.cmd("cexpr system('" .. input.. "')")
+    vim.cmd('copen')
+  end)
+end)
 vim.keymap.set('n', '<leader>ps', function()
   require('telescope.builtin').grep_string({search = vim.fn.input('Grep > ')});
 end)

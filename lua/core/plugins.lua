@@ -18,6 +18,7 @@ return require('lazy').setup({
   'tpope/vim-commentary',
   'tpope/vim-dispatch',
   'tpope/vim-dadbod',
+  'chrisbra/csv.vim',
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
