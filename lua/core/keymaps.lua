@@ -1,49 +1,33 @@
 -- Key Remaps --
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+local telescope = require('telescope.builtin')
 
-vim.keymap.set("n", "<leader>pv", '<cmd>Vexplore<cr>')
-vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
-vim.keymap.set("n", "<leader>ws", vim.cmd.sp)
-vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
-vim.keymap.set("n", "<leader>wv", vim.cmd.vs)
-vim.keymap.set("n", "s", vim.cmd.w)
+vim.keymap.set("n", "<leader>ee", '<cmd>Explore<cr>', { desc = 'Open explorer in current window'})
+vim.keymap.set("n", "<leader>ev", '<cmd>Vexplore<cr>', { desc = 'Open explorer in new vertical split' })
+vim.keymap.set("n", "<leader>eh", '<cmd>Hexplore<cr>', { desc = 'Open explorer in new horizontal split'})
+vim.keymap.set("n", "<leader>ws", vim.cmd.sp, { desc = 'New Horizontal split' } )
+vim.keymap.set("n", "<leader>wv", vim.cmd.vs, { desc = 'New Vertical split' } )
+vim.keymap.set("n", "<leader><leader>", vim.cmd.w, { desc = 'Save current document' })
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Open git status window'});
-vim.keymap.set('n', '<leader>ff', function()
-  require('telescope.builtin').find_files({hidden = true});
-end, {desc = '[?] Search for files'})
+vim.keymap.set('n', '<leader>g', vim.cmd.Git, { desc = 'Open git status window'});
 vim.keymap.set('n', '<leader>qf', function()
   vim.ui.input({prompt = 'Quickfix Command > '}, function(input)
     vim.cmd("cexpr system('" .. input.. "')")
     vim.cmd('copen')
   end)
-end)
-vim.keymap.set('n', '<leader>ps', function()
-  require('telescope.builtin').live_grep();
-end)
-vim.keymap.set('n', '<leader>fg', function()
-  require('telescope.builtin').live_grep();
-end)
-vim.keymap.set('n', '<leader>fs', function()
-  require('telescope.builtin').search_history();
-end)
-vim.keymap.set('n', '<leader>fl', function()
-  require('telescope.builtin').loclist();
-end)
-vim.keymap.set('n', '<leader>fj', function()
-  require('telescope.builtin').jumplist();
-end)
-vim.keymap.set('n', '<leader>fq', function()
-  require('telescope.builtin').quickfix();
-end)
-vim.keymap.set('n', '<leader>fk', function()
-  require('telescope.builtin').keymaps();
-end)
-vim.keymap.set('n', '<leader>fp', function()
-  require('telescope.builtin').planets();
-end)
+end, {desc = 'Execute system command, then use results to populate QFList'})
+vim.keymap.set('n', '<leader>ff', function()
+  telescope.find_files({hidden = true});
+end, {desc = 'Search for files'})
+vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Grep over files'})
+vim.keymap.set('n', '<leader>fo', telescope.oldfiles, { desc = 'Find recently opened files' })
+vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Find existing buffers' })
+vim.keymap.set('n', '<leader>fs', telescope.search_history, { desc = 'find search history' })
+vim.keymap.set('n', '<leader>fl', telescope.loclist, { desc = 'Search Loclist' })
+vim.keymap.set('n', '<leader>fj', telescope.jumplist, { desc = 'Search jumplist' })
+vim.keymap.set('n', '<leader>fq', telescope.quickfix, { desc = 'Search quickfix list' })
+vim.keymap.set('n', '<leader>fk', telescope.keymaps, { desc = 'Search all keymaps' })
+vim.keymap.set('n', '<leader>fp', telescope.planets, { desc = 'Search all planets' })
