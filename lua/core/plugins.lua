@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
+  'airblade/vim-gitgutter',
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-rails',
@@ -19,6 +20,7 @@ return require('lazy').setup({
   'tpope/vim-dispatch',
   'tpope/vim-dadbod',
   'chrisbra/csv.vim',
+  'yssl/QFEnter',
   {
     "folke/which-key.nvim",
     event = "VeryLazy",

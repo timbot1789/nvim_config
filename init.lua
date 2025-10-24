@@ -8,9 +8,9 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
-vim.opt.smartindent = true
-vim.opt.wrap = true 
-vim.opt.linebreak = true
+-- vim.opt.smartindent = true
+vim.opt.wrap = false
+-- vim.opt.linebreak = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -40,7 +40,6 @@ vim.g.maplocalleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.cmd('colorscheme everforest')
-vim.cmd('set iskeyword-=_')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
