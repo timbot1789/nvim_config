@@ -44,14 +44,6 @@ return require('lazy').setup({
 	  dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
-    'freddiehaddad/feline.nvim',
-    opts = {},
-    config = function(_, opts)
-        require('feline').setup()
-        require('feline').winbar.setup()       -- to use winbar
-    end
-  },
-  {
     'vhyrro/luarocks.nvim',
     priority = 1001, -- this plugin needs to run before anything else
     opts = {
@@ -127,15 +119,6 @@ return require('lazy').setup({
     {'rafamadriz/friendly-snippets'},     -- Required
     }
   },
-  {
-  'nvim-neo-tree/neo-tree.nvim',
-    branch = "v3.x",
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-      'MunifTanjim/nui.nvim',
-    }
-  }
 })
 
 
