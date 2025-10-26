@@ -96,29 +96,22 @@ return require('lazy').setup({
       })
     end
   },
+  {
+      "mason-org/mason.nvim",
+      opts = {}
+  },
+  {
+      "mason-org/mason-lspconfig.nvim",
+      opts = {},
+      dependencies = {
+          { "mason-org/mason.nvim", opts = {} },
+          "neovim/nvim-lspconfig",
+      },
+  },
   'neanias/everforest-nvim',
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-  {
-  'VonHeikemen/lsp-zero.nvim',
-  dependencies= {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},             -- Required
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Required
-    {'hrsh7th/cmp-buffer'},     -- Required
-    {'hrsh7th/cmp-path'},     -- Required
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'hrsh7th/cmp-nvim-lua'}, -- Required
-    {'L3MON4D3/LuaSnip'},     -- Required
-    {'rafamadriz/friendly-snippets'},     -- Required
-    }
-  },
+  { 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = 'false', build = ':TSUpdate'},
 })
 
 
