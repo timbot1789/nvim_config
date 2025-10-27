@@ -59,3 +59,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+vim.keymap.set({ "n", "x" }, "<leader>ca", function()
+	require("tiny-code-action").code_action()
+end, { noremap = true, silent = true })

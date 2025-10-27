@@ -112,6 +112,26 @@ return require('lazy').setup({
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
   { 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = 'false', build = ':TSUpdate'},
+  {
+    "rachartier/tiny-code-action.nvim",
+    dependencies = {
+        {"nvim-lua/plenary.nvim"},
+
+        -- optional picker via telescope
+        {"nvim-telescope/telescope.nvim"},
+    },
+    event = "LspAttach",
+    opts = {
+     picker = {
+          "buffer",
+          opts = {
+              hotkeys = true,
+              hotkeys_mode = "text_diff_based",
+              auto_preview = true,
+          }
+      }
+    },
+}
 })
 
 
