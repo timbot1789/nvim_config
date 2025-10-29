@@ -3,12 +3,12 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 local telescope = require('telescope.builtin')
 
-vim.keymap.set("n", "<leader>ee", '<cmd>Explore<cr>', { desc = 'Open explorer in current window'})
-vim.keymap.set("n", "<leader>ev", '<cmd>Vexplore<cr>', { desc = 'Open explorer in new vertical split' })
-vim.keymap.set("n", "<leader>eh", '<cmd>Hexplore<cr>', { desc = 'Open explorer in new horizontal split'})
+
+vim.keymap.set("n", "<leader>ee", '<cmd>Neotree filesystem reveal float<cr>', { desc = 'Open explorer in current window'})
+vim.keymap.set("n", "<leader><leader>", '<cmd>Neotree buffers reveal float<cr>', { desc = 'Open explorer in current window'})
 vim.keymap.set("n", "<leader>ws", vim.cmd.sp, { desc = 'New Horizontal split' } )
 vim.keymap.set("n", "<leader>wv", vim.cmd.vs, { desc = 'New Vertical split' } )
-vim.keymap.set("n", "<leader><leader>", vim.cmd.w, { desc = 'Save current document' })
+vim.keymap.set("n", "<leader>s", vim.cmd.w, { desc = 'Save current document' })
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')

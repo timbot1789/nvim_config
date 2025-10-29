@@ -61,5 +61,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldlevelstart = 99
-vim.bo.autocomplete = vim.bo.buftype == ''
-vim.api.nvim_create_autocmd("BufEnter", { callback = function() if vim.bo.buftype == 'nofile' then vim.opt.autocomplete = false return end vim.opt.autocomplete = true end, }) 
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.buftype == 'nofile' then
+      vim.bo.autocomplete = false
+    end
+  end
+})
