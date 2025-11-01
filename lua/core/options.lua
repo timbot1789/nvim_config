@@ -33,7 +33,7 @@ vim.opt.clipboard = 'unnamedplus'
 vim.wo.signcolumn = 'yes'
 
 -- Display options for autocomplete --
-vim.o.autocomplete = true
+-- vim.o.autocomplete = true
 vim.o.completeopt = 'menuone,noselect,popup,preview'
 
 vim.cmd('colorscheme everforest')
@@ -61,10 +61,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldlevelstart = 99
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    if vim.bo.buftype == 'nofile' then
-      vim.bo.autocomplete = false
-    end
-  end
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   callback = function()
+--     if vim.bo.buftype == 'nofile' then
+--       vim.bo.autocomplete = false
+--     end
+--   end
+-- })

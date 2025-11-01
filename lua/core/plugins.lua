@@ -81,6 +81,15 @@ return require('lazy').setup({
   'lewis6991/gitsigns.nvim',
   { 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = 'false', build = ':TSUpdate'},
   {
+     "m4xshen/hardtime.nvim",
+     lazy = false,
+     dependencies = { "MunifTanjim/nui.nvim" },
+     opts = {},
+  },
+  {
+    "rcarriga/nvim-notify"
+  },
+  {
     "rachartier/tiny-code-action.nvim",
     dependencies = {
         {"nvim-lua/plenary.nvim"},
@@ -99,7 +108,19 @@ return require('lazy').setup({
           }
       }
     },
-}
+  },
+  {
+    "saghen/blink.cmp",
+    dependencies = {'rafamadriz/friendly-snippets'},
+    version = '1.*',
+    opts = {
+      keymap = { preset = 'default' },
+      sources = {
+        default = {'lsp', 'path', 'snippets', 'buffer' }
+      }
+    },
+    opts_extend = { "sources.default" }
+  }
 })
 
 
