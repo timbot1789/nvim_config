@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>ee", '<cmd>Neotree filesystem reveal float<cr>', { 
 vim.keymap.set("n", "<leader><leader>", '<cmd>Neotree buffers reveal float<cr>', { desc = 'Open explorer in current window'})
 vim.keymap.set("n", "<leader>ws", vim.cmd.sp, { desc = 'New Horizontal split' } )
 vim.keymap.set("n", "<leader>wv", vim.cmd.vs, { desc = 'New Vertical split' } )
-vim.keymap.set("n", "<leader>s", vim.cmd.w, { desc = 'Save current document' })
+vim.keymap.set("n", "<leader>s", vim.cmd.wa, { desc = 'Save current document' })
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')

@@ -50,6 +50,17 @@ return require('lazy').setup({
     lazy = false, -- neo-tree will lazily load itself
   },
   {
+    "antosha417/nvim-lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    -- Uncomment whichever supported plugin(s) you use
+      "nvim-neo-tree/neo-tree.nvim",
+    },
+    config = function()
+      require("lsp-file-operations").setup()
+    end,
+  },
+  {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.3',
 	  dependencies = { 'nvim-lua/plenary.nvim' },
   },
