@@ -34,7 +34,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Display options for autocomplete --
 -- vim.o.autocomplete = true
-vim.o.completeopt = 'menuone,noselect,popup,preview'
+vim.o.completeopt = 'menuone,popup,preview'
 
 vim.cmd('colorscheme everforest')
 
@@ -49,24 +49,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-    end
-  end,
-})
 -- Use treesitter to determine folding --
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.o.foldlevelstart = 99
--- vim.api.nvim_create_autocmd("BufEnter", {
---   callback = function()
---     if vim.bo.buftype == 'nofile' then
---       vim.bo.autocomplete = false
---     end
---   end
--- })
+vim.o.foldlevelstart = 3
 vim.o.winborder = 'rounded'
 vim.o.pumborder = 'rounded'
