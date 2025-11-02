@@ -34,7 +34,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Display options for autocomplete --
 -- vim.o.autocomplete = true
-vim.o.completeopt = 'menuone,popup,preview'
+vim.o.completeopt = 'menuone,noselect,popup,preview'
 
 vim.cmd('colorscheme everforest')
 
