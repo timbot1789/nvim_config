@@ -84,7 +84,14 @@ return require('lazy').setup({
      "m4xshen/hardtime.nvim",
      lazy = false,
      dependencies = { "MunifTanjim/nui.nvim" },
-     opts = {},
+     opts = {
+      disabled_keys = {
+        ["<Up>"] = false,
+        ["<Down>"] = false,
+        ["<Left>"] = false,
+        ["<Right>"] = false,
+      }
+    },
   },
   {
     "rcarriga/nvim-notify"
@@ -108,18 +115,6 @@ return require('lazy').setup({
           }
       }
     },
-  },
-  {
-    "saghen/blink.cmp",
-    dependencies = {'rafamadriz/friendly-snippets'},
-    version = '1.*',
-    opts = {
-      keymap = { preset = 'default' },
-      sources = {
-        default = {'lsp', 'path', 'snippets', 'buffer' }
-      }
-    },
-    opts_extend = { "sources.default" }
   }
 })
 

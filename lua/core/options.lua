@@ -68,3 +68,5 @@ vim.o.foldlevelstart = 99
 --     end
 --   end
 -- })
+vim.o.winborder = 'rounded'
+vim.o.pumborder = 'rounded'
