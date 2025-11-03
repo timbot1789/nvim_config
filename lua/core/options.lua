@@ -50,8 +50,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Use treesitter to determine folding --
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.o.foldlevelstart = 3
+vim.wo.foldmethod = 'indent'
+-- vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+vim.o.foldlevelstart = 99
 vim.o.winborder = 'rounded'
 vim.o.pumborder = 'rounded'
