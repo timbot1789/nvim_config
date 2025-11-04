@@ -21,6 +21,7 @@ return require('lazy').setup({
   'tpope/vim-dadbod',
   'chrisbra/csv.vim',
   'yssl/QFEnter',
+  'folke/zen-mode.nvim',
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -47,13 +48,13 @@ return require('lazy').setup({
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
-    lazy = false, -- neo-tree will lazily load itself
+    lazy = false,                    -- neo-tree will lazily load itself
   },
   {
     "antosha417/nvim-lsp-file-operations",
     dependencies = {
       "nvim-lua/plenary.nvim",
-    -- Uncomment whichever supported plugin(s) you use
+      -- Uncomment whichever supported plugin(s) you use
       "nvim-neo-tree/neo-tree.nvim",
     },
     config = function()
@@ -61,30 +62,31 @@ return require('lazy').setup({
     end,
   },
   {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.3',
-	  dependencies = { 'nvim-lua/plenary.nvim' },
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.3',
+    dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
-      "mason-org/mason.nvim",
-      opts = {}
+    "mason-org/mason.nvim",
+    opts = {}
   },
   {
-      "mason-org/mason-lspconfig.nvim",
-      opts = {},
-      dependencies = {
-          { "mason-org/mason.nvim", opts = {} },
-          "neovim/nvim-lspconfig",
-      },
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
   },
   'neanias/everforest-nvim',
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
-  { 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = 'false', build = ':TSUpdate'},
+  { 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = 'false', build = ':TSUpdate' },
   {
-     "m4xshen/hardtime.nvim",
-     lazy = false,
-     dependencies = { "MunifTanjim/nui.nvim" },
-     opts = {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {
       disabled_keys = {
         ["<Up>"] = false,
         ["<Down>"] = false,
@@ -99,23 +101,21 @@ return require('lazy').setup({
   {
     "rachartier/tiny-code-action.nvim",
     dependencies = {
-        {"nvim-lua/plenary.nvim"},
+      { "nvim-lua/plenary.nvim" },
 
-        -- optional picker via telescope
-        {"nvim-telescope/telescope.nvim"},
+      -- optional picker via telescope
+      { "nvim-telescope/telescope.nvim" },
     },
     event = "LspAttach",
     opts = {
-     picker = {
-          "buffer",
-          opts = {
-              hotkeys = true,
-              hotkeys_mode = "text_diff_based",
-              auto_preview = true,
-          }
+      picker = {
+        "buffer",
+        opts = {
+          hotkeys = true,
+          hotkeys_mode = "text_diff_based",
+          auto_preview = true,
+        }
       }
     },
   }
 })
-
-

@@ -33,7 +33,7 @@ vim.keymap.set('n', '<leader>fj', telescope.jumplist, { desc = 'Search jumplist'
 vim.keymap.set('n', '<leader>fq', telescope.quickfix, { desc = 'Search quickfix list' })
 vim.keymap.set('n', '<leader>fk', telescope.keymaps, { desc = 'Search all keymaps' })
 vim.keymap.set('n', '<leader>fp', telescope.planets, { desc = 'Search all planets' })
-vim.keymap.set('n', '<Tab>', "za", { desc = 'Toggle folds' })
+-- vim.keymap.set('n', '<Tab>', "za", { desc = 'Toggle folds' })
 
 -- note: diagnostics are not exclusive to lsp servers
 -- so these can be global keybindings
