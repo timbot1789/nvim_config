@@ -16,7 +16,6 @@ return require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-rails',
-  'tpope/vim-commentary',
   'tpope/vim-dispatch',
   'tpope/vim-dadbod',
   'chrisbra/csv.vim',
