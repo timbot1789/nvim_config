@@ -17,8 +17,6 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 
-vim.opt.termguicolors = true
-
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
@@ -49,8 +47,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- Use treesitter to determine folding --
-vim.wo.foldmethod = 'indent'
+vim.wo.foldmethod = 'indent' -- vim.wo.foldmethod = 'expr' to use lsp (finicky)
 -- vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
 vim.o.foldlevelstart = 99
 vim.o.winborder = 'rounded'
