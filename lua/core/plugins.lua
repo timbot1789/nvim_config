@@ -21,7 +21,17 @@ return require('lazy').setup({
   'tpope/vim-dadbod',
   'chrisbra/csv.vim',
   'yssl/QFEnter',
-  'folke/zen-mode.nvim',
+  {
+    'folke/zen-mode.nvim',
+    opts = {
+      window = {
+        options = {
+          number = true,
+          relativenumber = true
+        }
+      }
+    }
+  },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
