@@ -88,6 +88,17 @@ return require('lazy').setup({
     },
   },
   'neanias/everforest-nvim',
+  {
+    "nkxxll/ghostty-default-style-dark.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
+  },
+  { "miikanissi/modus-themes.nvim",    priority = 1000 },
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
   { 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = 'false', build = ':TSUpdate' },

@@ -34,18 +34,7 @@ vim.wo.signcolumn = 'yes'
 -- vim.o.autocomplete = true
 vim.o.completeopt = 'menuone,noselect,popup,preview'
 
-vim.cmd('colorscheme everforest')
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
+vim.cmd.colorscheme('modus_vivendi')
 
 vim.wo.foldmethod = 'indent' -- vim.wo.foldmethod = 'expr' to use lsp (finicky)
 -- vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
