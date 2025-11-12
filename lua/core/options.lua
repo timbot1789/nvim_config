@@ -1,4 +1,5 @@
-vim.opt.nu = true
+vim.opt.mouse = 'a'
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 2
@@ -41,3 +42,6 @@ vim.wo.foldmethod = 'indent' -- vim.wo.foldmethod = 'expr' to use lsp (finicky)
 vim.o.foldlevelstart = 99
 vim.o.winborder = 'rounded'
 vim.o.pumborder = 'rounded'
+vim.diagnostic.config({
+  virtual_lines = true
+})
