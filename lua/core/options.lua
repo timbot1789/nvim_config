@@ -43,5 +43,5 @@ vim.o.foldlevelstart = 99
 vim.o.winborder = 'rounded'
 vim.o.pumborder = 'rounded'
 vim.diagnostic.config({
-  virtual_lines = true
+  virtual_lines = false
 })
