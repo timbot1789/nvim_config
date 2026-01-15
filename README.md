@@ -1,6 +1,7 @@
 Required dependencies:
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [imagemagick](https://imagemagick.org/script/download.php)
+- [A NerdFont](https://www.nerdfonts.com/font-downloads)
 
 All my custom commands exist under <leader> (space key). I don't remap any other vim keys 
 - <leader> + `e` + option: file explorer commands (currently netrw)

@@ -75,6 +75,7 @@ return require('lazy').setup({
     tag = '0.1.3',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
     "mason-org/mason.nvim",
     opts = {}
@@ -107,6 +108,7 @@ return require('lazy').setup({
     lazy = false,
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
+      disable_mouse = false,
       disabled_keys = {
         ["<Up>"] = false,
         ["<Down>"] = false,
