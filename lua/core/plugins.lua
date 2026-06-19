@@ -72,9 +72,10 @@ return require('lazy').setup({
   },
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.3',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
+  { "junegunn/fzf", build = "./install --all" },
+  { "junegunn/fzf.vim" },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
     "mason-org/mason.nvim",
