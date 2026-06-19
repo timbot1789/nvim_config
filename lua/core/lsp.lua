@@ -1,3 +1,27 @@
+vim.lsp.config['ruby-lsp'] = {
+  -- Command and arguments to start the server.
+  cmd = { 'mise', 'x', '--', 'ruby-lsp' },
+  -- Filetypes to automatically attach to.
+  filetypes = { 'ruby' },
+  -- Sets the "workspace" to the directory where any of these files is found.
+  -- Files that share a root directory will reuse the LSP server connection.
+  -- Nested lists indicate equal priority, see |vim.lsp.Config|.
+  root_markers = { { 'Gemfile', 'Gemfile.lock' }, '.git' },
+  -- Specific settings to send to the server. The schema is server-defined.
+  -- Example: https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
+  ioit_options = {
+    formatter = 'standard',
+    linters = { 'standard' },
+    addonSettings = {
+      ["Ruby LSP Rails"] = {
+        enablePendingMigrationsPrompt = false,
+      },
+    },
+  }
+}
+
+vim.lsp.enable('ruby-lsp');
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
   callback = function(args)
