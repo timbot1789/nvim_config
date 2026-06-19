@@ -2,6 +2,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 local telescope = require('telescope.builtin')
+local fzf_lua = require('fzf-lua')
 
 
 vim.keymap.set("n", "<leader>ee", '<cmd>Neotree filesystem reveal float<cr>',
@@ -21,8 +22,8 @@ vim.keymap.set('n', '<leader>qf', function()
     vim.cmd('copen')
   end)
 end, { desc = 'Execute system command, then use results to populate QFList' })
-vim.keymap.set('n', '<leader>ff', vim.cmd.Files, { desc = 'Search for files' })
-vim.keymap.set('n', '<leader>fg', vim.cmd.RG, { desc = 'Grep over files' })
+vim.keymap.set('n', '<leader>ff', fzf_lua.files, { desc = 'Search for files' })
+vim.keymap.set('n', '<leader>fg', fzf_lua.live_grep_native, { desc = 'Grep over files' })
 vim.keymap.set('n', '<leader>fo', telescope.oldfiles, { desc = 'Find recently opened files' })
 vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Find existing buffers' })
 vim.keymap.set('n', '<leader>fs', telescope.search_history, { desc = 'find search history' })
