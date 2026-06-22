@@ -1,1 +1,1 @@
-vim.notify = require("notify")
+require("mini.notify").setup()

@@ -14,12 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 return require('lazy').setup({
   'airblade/vim-gitgutter',
   'tpope/vim-fugitive',
-  'tpope/vim-surround',
   'tpope/vim-rails',
   'tpope/vim-dispatch',
   'tpope/vim-dadbod',
   'chrisbra/csv.vim',
   'yssl/QFEnter',
+  { 'nvim-mini/mini.surround',                  version = '*' },
   {
     'folke/zen-mode.nvim',
     opts = {
@@ -114,23 +114,7 @@ return require('lazy').setup({
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
   { 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = 'false', build = ':TSUpdate' },
-  {
-    "m4xshen/hardtime.nvim",
-    lazy = false,
-    dependencies = { "MunifTanjim/nui.nvim" },
-    opts = {
-      disable_mouse = false,
-      disabled_keys = {
-        ["<Up>"] = false,
-        ["<Down>"] = false,
-        ["<Left>"] = false,
-        ["<Right>"] = false,
-      }
-    },
-  },
-  {
-    "rcarriga/nvim-notify"
-  },
+  { 'nvim-mini/mini.notify',           version = false },
   {
     "rachartier/tiny-code-action.nvim",
     dependencies = {
